@@ -1,5 +1,6 @@
 import Background from "./components/Background";
 import Cursor from "./components/Cursor";
+import Eligibility from "./sections/eligibility/Eligibility";
 
 import Header from "./sections/Header/Header";
 // import About from "./sections/About/About";
@@ -20,6 +21,8 @@ export default function MainLayout() {
       
       <Header />
       {/* <About /> */}
+
+      <Eligibility />
  
       {/* <Tracks />
       <Timeline />
