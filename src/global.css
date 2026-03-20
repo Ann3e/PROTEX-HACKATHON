@@ -1,0 +1,62 @@
+/* reset */
+body {
+  margin: 0;
+  background: #0b0b1a ;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* container (FULL SCREEN, BEHIND EVERYTHING) */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* base stars */
+.stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-repeat: repeat;
+}
+
+/* small stars (fast) */
+.layer1 {
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveStars 60s linear infinite;
+}
+
+/* medium stars */
+.layer2 {
+  background-image: radial-gradient(#aaa 1.5px, transparent 1px);
+  background-size: 100px 100px;
+  animation: moveStars 120s linear infinite;
+}
+
+/* big stars (slow) */
+.layer3 {
+  background-image: radial-gradient(#fff 2px, transparent 1px);
+  background-size: 150px 150px;
+  animation: moveStars 180s linear infinite;
+}
+
+/* movement */
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-500px, -500px);
+  }
+}
+.section {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}

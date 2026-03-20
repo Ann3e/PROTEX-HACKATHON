@@ -1,0 +1,50 @@
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-size: 5rem;
+  color: white;
+  letter-spacing: 8px;
+
+  text-shadow:
+    0 0 10px #ff2e88,
+    0 0 20px #ff2e88,
+    0 0 40px #ff2e88;
+}
+
+/* Subtitle */
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #00f5d4;
+
+  text-shadow: 0 0 10px #00f5d4;
+}
+
+/* Button */
+.cta-btn {
+  margin-top: 2rem;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+
+  background: transparent;
+  color: white;
+  border: 2px solid #00f5d4;
+
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #00f5d4;
+  color: black;
+  box-shadow: 0 0 20px #00f5d4;
+}
