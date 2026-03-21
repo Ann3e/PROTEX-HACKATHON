@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&display=swap");
+
+/* ─── CSS Variables ──────────────────────────────────────── */
+:root {
+  --bg-base: #050510;
+  --bg-card: rgba(10, 10, 35, 0.72);
+  --cyan: #00f5e4;
+  --cyan-dim: rgba(0, 245, 228, 0.18);
+  --cyan-glow: 0 0 8px rgba(0, 245, 228, 0.55), 0 0 20px rgba(0, 245, 228, 0.2);
+  --pink: #ff2d78;
+  --pink-dim: rgba(255, 45, 120, 0.18);
+  --pink-glow: 0 0 8px rgba(255, 45, 120, 0.65), 0 0 24px rgba(255, 45, 120, 0.25);
+  --border-cyan: 1px solid rgba(0, 245, 228, 0.35);
+  --border-pink: 1.5px solid rgba(255, 45, 120, 0.5);
+  --text-primary: #e8e8ff;
+  --text-muted: #9898bb;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+}
+
+/* ─── Section Wrapper ────────────────────────────────────── */
+.eligibility-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 20px 100px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+/* ─── Grid Overlay ───────────────────────────────────────── */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 245, 228, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 228, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Container ──────────────────────────────────────────── */
+.eligibility-container {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ─── Section Title ──────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(255, 45, 120, 0.7),
+    0 0 30px rgba(255, 45, 120, 0.4),
+    0 0 60px rgba(255, 45, 120, 0.15);
+  margin: 0;
+}
+
+.title-underline {
+  width: 100px;
+  height: 3px;
+  margin: -32px auto 0;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 45, 120, 0.15);
+}
+
+.title-underline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--cyan), transparent);
+  box-shadow: 0 0 10px rgba(255, 45, 120, 0.7);
+  border-radius: 2px;
+  animation: underline-slide 2s linear infinite;
+}
+
+@keyframes underline-slide {
+  0%   { left: -100%; }
+  100% { left: 100%; }
+}
+/* ─── Block Wrapper ──────────────────────────────────────── */
+.block-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ─── Block Labels ───────────────────────────────────────── */
+.block-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.block-label.cyan {
+  color: var(--cyan);
+  text-shadow: var(--cyan-glow);
+}
+
+.block-label.pink {
+  color: var(--pink);
+  text-shadow: var(--pink-glow);
+}
+
+/* ─── Entry Cards ────────────────────────────────────────── */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.entry-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  background: var(--bg-card);
+  border: var(--border-cyan);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: default;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  will-change: transform;
+}
+
+.entry-card:hover {
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 0 1px rgba(0, 245, 228, 0.2),
+    0 0 18px rgba(0, 245, 228, 0.18),
+    inset 0 0 16px rgba(0, 245, 228, 0.06);
+  background: rgba(0, 245, 228, 0.05);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(0, 245, 228, 0.6));
+}
+
+.card-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Glitch Text ────────────────────────────────────────── */
+.glitch-text-wrap {
+  position: relative;
+  display: inline;
+}
+
+.glitch-base {
+  position: relative;
+  z-index: 1;
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.layer-1 {
+  color: var(--cyan);
+  animation: gslice-1 6s infinite;
+}
+
+.layer-2 {
+  color: var(--pink);
+  animation: gslice-2 6s infinite;
+}
+
+.layer-3 {
+  color: #ffe000;
+  animation: gslice-3 6s infinite;
+}
+
+@keyframes gslice-1 {
+  0%, 88%, 100%  { opacity: 0; transform: translateX(0); }
+  89%   { opacity: 0.8; transform: translateX(-4px); clip-path: inset(10% 0 70% 0); }
+  89.5% { opacity: 0.8; transform: translateX(3px);  clip-path: inset(40% 0 40% 0); }
+  90%   { opacity: 0; }
+}
+
+@keyframes gslice-2 {
+  0%, 89.5%, 100% { opacity: 0; transform: translateX(0); }
+  90%   { opacity: 0.7; transform: translateX(5px);  clip-path: inset(55% 0 20% 0); }
+  90.4% { opacity: 0.7; transform: translateX(-3px); clip-path: inset(70% 0 5% 0);  }
+  91%   { opacity: 0; }
+}
+
+@keyframes gslice-3 {
+  0%, 91%, 100% { opacity: 0; transform: translateX(0); }
+  91.5% { opacity: 0.6; transform: translateX(-6px); clip-path: inset(25% 0 55% 0); }
+  92%   { opacity: 0; }
+}
+
+/* ─── Rules Box ──────────────────────────────────────────── */
+.rules-box {
+  background: rgba(15, 5, 28, 0.75);
+  border: var(--border-pink);
+  border-radius: 12px;
+  padding: 28px 30px 30px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 0 1px rgba(255, 45, 120, 0.08),
+    0 0 24px rgba(255, 45, 120, 0.12),
+    inset 0 0 30px rgba(255, 45, 120, 0.04);
+}
+
+/* ─── Rules Header ───────────────────────────────────────── */
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.shield-icon {
+  color: var(--pink);
+  filter: drop-shadow(0 0 6px rgba(255, 45, 120, 0.7));
+}
+
+.rules-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--pink);
+  text-shadow: var(--pink-glow);
+}
+
+/* ─── Rules List ─────────────────────────────────────────── */
+.rules-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.rule-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow:
+    0 0 6px rgba(255, 45, 120, 0.9),
+    0 0 14px rgba(255, 45, 120, 0.5);
+}
+
+.rule-text {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .eligibility-section {
+    padding: 60px 16px 80px;
+  }
+
+  .rules-box {
+    padding: 22px 18px 24px;
+  }
+
+  .entry-card {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .card-text,
+  .rule-text {
+    font-size: 0.9rem;
+  }
+}
