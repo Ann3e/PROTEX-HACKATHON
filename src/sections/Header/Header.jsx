@@ -22,6 +22,7 @@ const NAV_LINKS = [
   { label: "Timeline", href: "#timeline" },
   { label: "Register", href: "#register" },
   { label: "Prizes", href: "#prizes" },
+  { label: "Sponsors", href: "#sponsors" },
   { label: "FAQ", href: "#faq" },
 ];
 

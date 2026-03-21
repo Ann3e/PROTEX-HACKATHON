@@ -10,7 +10,8 @@ import Timeline from "./sections/Timeline/Timeline";
 import StarField from "./components/StarField";
 // import Timeline from "./sections/Timeline/Timeline";
 // import Registration from "./sections/Registration/Registration";
-// import Prizes from "./sections/Prizes/Prizes";
+import Prizes from "./sections/Prizes/Prizes";
+import Sponsors from "./sections/Sponsors/Sponsors";
 import FAQ from "./sections/FAQ/FAQ";
 import Footer from "./sections/Footer/Footer";
 export default function MainLayout() {
@@ -29,6 +30,8 @@ export default function MainLayout() {
       <Tracks />
       <Timeline />
       <Eligibility />
+      <Prizes />
+      <Sponsors/>
       <FAQ />
       <Footer /> 
 
