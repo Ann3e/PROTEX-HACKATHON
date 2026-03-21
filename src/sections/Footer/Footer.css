@@ -5,7 +5,6 @@
   background: rgba(8, 0, 18, 0.97);
   border-top: 1px solid rgba(255, 45, 120, 0.25);
   overflow: hidden;
-  text-align: center;
 }
 
 /* top rainbow accent bar */
@@ -20,69 +19,102 @@
 /* background orb */
 .ft-orb {
   position: absolute;
-  top: -60px; left: 50%;
+  top: -40px; left: 50%;
   transform: translateX(-50%);
-  width: 500px; height: 200px;
+  width: 500px; height: 180px;
   background: radial-gradient(ellipse at center, rgba(123, 47, 255, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
+/* ── Main row — left + right ── */
 .ft-inner {
   position: relative;
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 36px 32px 24px;
+  padding: 32px 48px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 32px;
 }
 
-/* ── Logo ── */
+/* ── LEFT ── */
+.ft-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
 .ft-logo {
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--pink);
   text-shadow:
     0 0 12px var(--pink),
     3px 3px 0 #8b0042,
     6px 6px 0 #4a0022;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
 }
 
 .ft-org {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 700;
   color: var(--cyan);
-  letter-spacing: 3px;
-  text-shadow: 0 0 8px var(--cyan);
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px var(--cyan);
 }
 
-/* ── CTA buttons ── */
+.ft-copy {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.22);
+  letter-spacing: 1px;
+  margin: 4px 0 0;
+}
+
+/* ── Vertical divider ── */
+.ft-vdivider {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, rgba(255, 45, 120, 0.4), transparent);
+  flex-shrink: 0;
+}
+
+/* ── RIGHT ── */
+.ft-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+/* CTA buttons */
 .ft-ctas {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin: 4px 0;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .ft-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  padding: 9px 18px;
+  letter-spacing: 1.2px;
+  padding: 8px 16px;
   text-decoration: none;
   border-radius: 2px;
   position: relative;
   overflow: hidden;
   transition: transform 0.18s, box-shadow 0.18s;
+  white-space: nowrap;
 }
 .ft-btn::before {
   content: '';
@@ -99,63 +131,44 @@
   border: 1px solid rgba(37, 211, 102, 0.4);
   color: #25d366;
 }
-.ft-btn--wa:hover { box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); }
+.ft-btn--wa:hover { box-shadow: 0 0 16px rgba(37, 211, 102, 0.3); }
 
 .ft-btn--mail {
   background: rgba(0, 245, 255, 0.1);
   border: 1px solid rgba(0, 245, 255, 0.35);
   color: var(--cyan);
 }
-.ft-btn--mail:hover { box-shadow: 0 0 20px rgba(0, 245, 255, 0.25); }
+.ft-btn--mail:hover { box-shadow: 0 0 16px rgba(0, 245, 255, 0.25); }
 
 .ft-btn--register {
   background: rgba(255, 45, 120, 0.1);
   border: 1px solid rgba(255, 45, 120, 0.35);
   color: var(--pink);
 }
-.ft-btn--register:hover { box-shadow: 0 0 20px rgba(255, 45, 120, 0.25); }
+.ft-btn--register:hover { box-shadow: 0 0 16px rgba(255, 45, 120, 0.25); }
 
-/* ── Divider ── */
-.ft-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  width: 100%;
-}
-
-.ft-divider-line {
-  flex: 1;
-  max-width: 120px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 45, 120, 0.45));
-}
-.ft-divider-line--right {
-  background: linear-gradient(90deg, rgba(255, 45, 120, 0.45), transparent);
-}
-
-.ft-divider-label {
+/* tagline */
+.ft-tagline {
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.38rem;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.36rem;
+  color: rgba(255, 255, 255, 0.2);
   letter-spacing: 2px;
-  white-space: nowrap;
-}
-
-/* ── Copyright ── */
-.ft-copy {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.25);
-  letter-spacing: 1.2px;
   margin: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 640px) {
-  .ft-inner { padding: 28px 20px 20px; gap: 14px; }
-  .ft-logo { font-size: 1.2rem; letter-spacing: 3px; }
-  .ft-ctas { gap: 8px; }
-  .ft-btn { font-size: 0.52rem; padding: 8px 12px; }
+/* ── Responsive — stack on mobile ── */
+@media (max-width: 700px) {
+  .ft-inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .ft-left { align-items: center; }
+  .ft-right { align-items: center; }
+  .ft-ctas { justify-content: center; }
+  .ft-vdivider {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 45, 120, 0.4), transparent);
+  }
 }
-
