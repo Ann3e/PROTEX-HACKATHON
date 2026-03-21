@@ -23,11 +23,12 @@ export default function MainLayout() {
       <Header />
       <Hero />
       <About />
+      <Tracks />
       <Eligibility />
       <FAQ />
       <Footer /> 
 
-      <Tracks />
+  
       {/*<Timeline />
       <Registration />
       <Prizes />   */}
