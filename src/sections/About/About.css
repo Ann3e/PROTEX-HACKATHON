@@ -1,0 +1,332 @@
+/* ============================================================
+   PROTEX — ABOUT SECTION
+   ============================================================ */
+
+/* ════════════════════════════════════════════════════════════
+   SECTION SHELL
+   ════════════════════════════════════════════════════════════ */
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 5vw 6rem;
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* CRT scanlines overlay */
+.about-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.10) 3px,
+    rgba(0, 0, 0, 0.10) 4px
+  );
+}
+
+/* ── Diamond decoration (right side) ── */
+.side-diamond {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: diamond-pulse 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px var(--cyan));
+}
+
+@keyframes diamond-pulse {
+  0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateY(-50%) scale(1.15); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTION TITLE
+   ════════════════════════════════════════════════════════════ */
+.about-title-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.5rem;
+
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.about-section--visible .about-title-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-title {
+  font-family: var(--font-pixel);
+  font-size: clamp(0.85rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.25em;
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+}
+
+.title-accent {
+  color: var(--pink);
+  text-shadow: 0 0 12px var(--pink), 0 0 30px rgba(255, 45, 120, 0.4);
+}
+
+.title-plain {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+
+/* Underline bar (cyan left + pink right matching screenshot) */
+.title-underline {
+  width: clamp(80px, 14vw, 160px);
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan) 0%, var(--pink) 100%);
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0, 245, 255, 0.4);
+  image-rendering: pixelated;
+}
+
+/* ════════════════════════════════════════════════════════════
+   BODY LAYOUT  (text left | cards right)
+   ════════════════════════════════════════════════════════════ */
+.about-body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   TEXT COLUMN
+   ════════════════════════════════════════════════════════════ */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.75s 0.2s ease, transform 0.75s 0.2s ease;
+}
+
+.about-section--visible .about-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-para {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: clamp(0.78rem, 1.5vw, 0.92rem);
+  line-height: 1.85;
+  color: white;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* Highlighted spans */
+.highlight {
+  font-weight: bold;
+}
+
+.highlight--cyan {
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
+}
+
+.highlight--yellow {
+  color: var(--yellow);
+  text-shadow: 0 0 8px rgba(255, 214, 0, 0.5);
+}
+
+.highlight--pink {
+  color: var(--pink);
+  text-shadow: 0 0 8px rgba(255, 45, 120, 0.5);
+}
+
+/* ════════════════════════════════════════════════════════════
+   STAT CARDS  (2×2 grid)
+   ════════════════════════════════════════════════════════════ */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.75s 0.3s ease, transform 0.75s 0.3s ease;
+}
+
+.about-section--visible .about-stats {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Individual card ── */
+.stat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1rem;
+  text-align: center;
+  cursor: default;
+  image-rendering: pixelated;
+  overflow: hidden;
+
+  /* Entrance */
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  transition:
+    opacity 0.5s ease var(--card-delay, 0s),
+    transform 0.5s ease var(--card-delay, 0s),
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.about-section--visible .stat-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Cyan-bordered cards */
+.stat-card--cyan {
+  background: rgba(0, 245, 255, 0.05);
+  border: 2px solid rgba(0, 245, 255, 0.55);
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.12), inset 0 0 20px rgba(0, 245, 255, 0.04);
+}
+
+.stat-card--cyan:hover {
+  background: rgba(0, 245, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.35), inset 0 0 30px rgba(0, 245, 255, 0.08);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Pink-bordered cards */
+.stat-card--pink {
+  background: rgba(123, 47, 255, 0.08);
+  border: 2px solid rgba(255, 45, 120, 0.55);
+  box-shadow: 0 0 18px rgba(255, 45, 120, 0.12), inset 0 0 20px rgba(123, 47, 255, 0.06);
+}
+
+.stat-card--pink:hover {
+  background: rgba(123, 47, 255, 0.14);
+  box-shadow: 0 0 30px rgba(255, 45, 120, 0.35), inset 0 0 30px rgba(123, 47, 255, 0.1);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Value (big number) */
+.stat-card__value {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.stat-card--cyan .stat-card__value {
+  color: var(--cyan);
+  text-shadow: 0 0 14px var(--cyan), 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+.stat-card--pink .stat-card__value {
+  color: var(--cyan);   /* matches screenshot — both values are cyan */
+  text-shadow: 0 0 14px var(--cyan), 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+/* Label */
+.stat-card__label {
+  font-family: var(--font-pixel);
+  font-size: clamp(0.42rem, 1vw, 0.58rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Pixel corner accents ── */
+.card-corner {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+}
+
+.stat-card--pink .card-corner { background: var(--pink); }
+
+.card-corner--tl { top: -2px;    left: -2px; }
+.card-corner--tr { top: -2px;    right: -2px; }
+.card-corner--bl { bottom: -2px; left: -2px; }
+.card-corner--br { bottom: -2px; right: -2px; }
+
+/* ── Scanline shimmer on hover ── */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 4px,
+    rgba(255, 255, 255, 0.015) 4px,
+    rgba(255, 255, 255, 0.015) 5px
+  );
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-text {
+    transform: translateY(16px);
+    transition: opacity 0.7s 0.15s ease, transform 0.7s 0.15s ease;
+  }
+
+  .about-section--visible .about-text {
+    transform: translateY(0);
+  }
+
+  .about-stats {
+    transform: translateY(16px);
+    transition: opacity 0.7s 0.25s ease, transform 0.7s 0.25s ease;
+  }
+
+  .about-section--visible .about-stats {
+    transform: translateY(0);
+  }
+
+  .side-diamond { display: none; }
+}
+
+@media (max-width: 480px) {
+  .about-section { padding: 4rem 1.25rem; }
+  .about-title   { font-size: 0.7rem; letter-spacing: 0.18em; }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-card { padding: 1.2rem 0.6rem; }
+}
