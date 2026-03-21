@@ -10,9 +10,6 @@ import {
 } from "lucide-react";
 import "./registration.css";
 
-/* ═══════════════════════════════════════════════════
-   SCAN TEXT (same as Eligibility)
-═══════════════════════════════════════════════════ */
 function ScanText({ text }) {
   return (
     <span className="scan-text-wrap">
