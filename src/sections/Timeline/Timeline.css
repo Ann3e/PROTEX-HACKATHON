@@ -1,0 +1,312 @@
+/* ── Fonts ──────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
+
+/* ── Brand tokens ───────────────────────────────────── */
+:root {
+  --pink:   #ff2d78;
+  --cyan:   #00f5ff;
+  --purple: #7b2fff;
+  --dark:   #080012;
+  --mid:    #1a0035;
+  --yellow: #ffd600;
+  --green:  #00ff88;
+
+  --font-pixel: "Press Start 2P", monospace;
+  --font-mono:  "Share Tech Mono", monospace;
+  --text-body:  #c8c0e8;
+  --text-muted: rgba(255,255,255,0.55);
+}
+
+/* ── Section wrapper (no background) ───────────────── */
+.tl-section {
+  width: 100%;
+  padding: 64px 20px 96px;
+  box-sizing: border-box;
+  font-family: var(--font-mono);
+  color: var(--text-body);
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.tl-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tl-title {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  color: var(--pink);
+  letter-spacing: 0.2em;
+  margin: 0 0 14px;
+  text-shadow:
+    0 0 16px rgba(255, 45, 120, 0.7),
+    0 0 42px rgba(255, 45, 120, 0.3);
+}
+
+/* ── Shiny underline — taken from eligibility section ── */
+.tl-shine-line {
+  width: 100px;
+  height: 3px;
+  margin: 0 auto 20px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 45, 120, 0.15);
+}
+.tl-shine-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--cyan), transparent);
+  box-shadow: 0 0 10px rgba(255, 45, 120, 0.7);
+  border-radius: 2px;
+  animation: underline-slide 2s linear infinite;
+}
+@keyframes underline-slide {
+  0%   { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Header subtitle — white like other sections */
+.tl-sub {
+  font-size: clamp(0.82rem, 2vw, 1rem);
+  color: white;
+  margin: 0;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+/* ── Timeline body ───────────────────────────────────── */
+.tl-body {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Vertical glowing line */
+.tl-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--purple) 8%,
+    var(--purple) 92%,
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(123, 47, 255, 0.55);
+  z-index: 0;
+}
+
+/* ── Row grid ────────────────────────────────────────── */
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-spacer { /* empty col */ }
+
+/* ── Ghost center ────────────────────────────────────── */
+.tl-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.ghost-svg {
+  animation: ghost-bob 2.4s ease-in-out infinite;
+}
+@keyframes ghost-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+
+/* ── Card shell ──────────────────────────────────────── */
+.tl-card {
+  border: 1px solid var(--accent, var(--purple));
+  border-radius: 3px;
+  background: rgba(13, 0, 34, 0.82);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  /* full card is clickable */
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  user-select: none;
+}
+
+.tl-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* hover — subtle glow */
+.tl-card:hover {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 30%, transparent);
+  background: rgba(20, 0, 48, 0.88);
+}
+
+/* open state — stronger glow + border brightens */
+.tl-card--open {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 0 28px color-mix(in srgb, var(--accent) 35%, transparent),
+    inset 0 0 20px color-mix(in srgb, var(--accent) 6%, transparent);
+  background: rgba(20, 0, 48, 0.9);
+}
+
+.row-left  .tl-card { margin-right: 14px; }
+.row-right .tl-card { margin-left:  14px; }
+
+/* ── Card inner padding ──────────────────────────────── */
+.card-inner {
+  padding: 20px 20px 16px;
+}
+
+/* Top row: date on left, arrow on right */
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Date — accent color, pixel font */
+.card-date {
+  font-family: var(--font-pixel);
+  font-size: clamp(0.80rem, 1.7vw, 0.88rem);
+  color: var(--accent, var(--cyan));
+  margin: 0;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Arrow — accent colored, rotates when open */
+.card-arrow {
+  display: inline-block;
+  color: var(--accent, var(--purple));
+  font-size: 0.78rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.2s;
+  line-height: 1;
+}
+.card-arrow--up {
+  transform: rotate(180deg);
+}
+.tl-card:hover .card-arrow {
+  color: white;
+}
+
+/* Subtitle — plain white */
+.card-subtitle {
+  font-family: var(--font-pixel);
+  font-size: clamp(0.50rem, 1.2vw, 0.58rem);
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.75;
+  opacity: 0.9;
+}
+
+/* Description — always visible */
+.card-desc {
+  font-size: clamp(0.78rem, 1.7vw, 0.9rem);
+  color: var(--text-body);
+  margin: 0 0 12px;
+  line-height: 1.65;
+}
+
+/* Button */
+.card-btn {
+  display: inline-block;
+  font-family: var(--font-pixel);
+  font-size: 0.48rem;
+  color: var(--accent, var(--cyan));
+  border: 1px solid var(--accent, var(--cyan));
+  padding: 9px 13px;
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.card-btn:hover {
+  background: var(--accent, var(--cyan));
+  color: #060010;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Expandable detail list */
+.card-details {
+  list-style: none;
+  padding: 12px 0 0;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.card-details li {
+  font-size: clamp(0.95rem, 1.6vw, 0.87rem);
+  color: var(--text-body);
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.55;
+}
+.card-details li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: var(--accent, var(--cyan));
+  font-family: sans-serif
+
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 760px) {
+  .tl-row {
+    grid-template-columns: 1fr 44px 1fr;
+  }
+  .card-date     { font-size: 0.58rem; }
+  .card-subtitle { font-size: 0.4rem; }
+}
+
+@media (max-width: 540px) {
+  .tl-body { padding-left: 36px; }
+  .tl-line { left: 14px; transform: none; }
+
+  .tl-row {
+    grid-template-columns: 36px 1fr;
+    padding: 14px 0;
+  }
+  .tl-center {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+  .tl-spacer { display: none; }
+  .tl-card {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .row-left  .tl-card,
+  .row-right .tl-card { margin-left: 0; margin-right: 0; }
+  .card-inner { padding: 14px 14px 12px; }
+  .card-date  { font-size: 0.55rem; }
+}
