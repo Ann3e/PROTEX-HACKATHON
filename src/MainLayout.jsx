@@ -6,6 +6,7 @@ import Header from "./sections/Header/Header";
 import About from "./sections/About/About";
 import Hero from "./sections/Hero/Hero";
 import Tracks from "./sections/Tracks/Tracks";
+import StarField from "./components/StarField";
 // import Timeline from "./sections/Timeline/Timeline";
 // import Registration from "./sections/Registration/Registration";
 // import Prizes from "./sections/Prizes/Prizes";
@@ -16,6 +17,7 @@ export default function MainLayout() {
     <>
       {/* Global Effects */}
       {/* <Background /> */}
+      <StarField /> 
       <Cursor />
 
       {/* Sections */}
