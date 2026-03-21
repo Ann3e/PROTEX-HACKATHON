@@ -6,6 +6,7 @@ import Header from "./sections/Header/Header";
 import About from "./sections/About/About";
 import Hero from "./sections/Hero/Hero";
 import Tracks from "./sections/Tracks/Tracks";
+import Timeline from "./sections/Timeline/Timeline";
 import StarField from "./components/StarField";
 // import Timeline from "./sections/Timeline/Timeline";
 // import Registration from "./sections/Registration/Registration";
@@ -27,6 +28,7 @@ export default function MainLayout() {
       <Hero />
       <About />
       <Tracks />
+      <Timeline />
       <Eligibility />
       <Prizes />
       <Sponsors/>
@@ -34,8 +36,9 @@ export default function MainLayout() {
       <Footer /> 
 
   
-      {/*<Timeline />
-      <Registration />*/}
+      {/*
+      <Registration />
+      <Prizes />   */}
     
     </>
   );
