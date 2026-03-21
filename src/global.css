@@ -1,10 +1,11 @@
-/* reset */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
   margin: 0;
   background: #0b0b1a ;
   color: white;
   overflow-x: hidden;
-}
+} 
 
 /* container (FULL SCREEN, BEHIND EVERYTHING) */
 .stars-container {
@@ -59,4 +60,4 @@ body {
   background: transparent;
   position: relative;
   z-index: 1;
-}
+}  
