@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
+  /* margin: 0; */
   background: #0b0b1a ;
   color: white;
   overflow-x: hidden;
@@ -61,3 +67,29 @@ body {
   position: relative;
   z-index: 1;
 }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
