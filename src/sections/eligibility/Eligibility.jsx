@@ -101,7 +101,7 @@ export default function Eligibility() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          Eligibility &amp; Rules
+          ELIGIBILITY &amp; RULES
         </motion.h2>
 
         <div className="title-underline" aria-hidden="true" />

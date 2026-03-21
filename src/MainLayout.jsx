@@ -1,6 +1,7 @@
 import Background from "./components/Background";
 import Cursor from "./components/Cursor";
 import Eligibility from "./sections/eligibility/Eligibility";
+import Registration from "./sections/Registration/Registration";
 
 import Header from "./sections/Header/Header";
 import About from "./sections/About/About";
@@ -25,11 +26,14 @@ export default function MainLayout() {
       {/* Sections */}
       
       <Header />
+
       <Hero />
       <About />
       <Tracks />
+
       <Timeline />
       <Eligibility />
+      <Registration/>      
       <Prizes />
       <Sponsors/>
       <FAQ />
@@ -37,7 +41,6 @@ export default function MainLayout() {
 
   
       {/*
-      <Registration />
       <Prizes />   */}
     
     </>
