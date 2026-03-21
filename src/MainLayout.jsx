@@ -4,35 +4,44 @@ import Eligibility from "./sections/eligibility/Eligibility";
 import Registration from "./sections/Registration/Registration";
 
 import Header from "./sections/Header/Header";
-// import About from "./sections/About/About";
-// import Tracks from "./sections/Tracks/Tracks";
+import About from "./sections/About/About";
+import Hero from "./sections/Hero/Hero";
+import Tracks from "./sections/Tracks/Tracks";
+import Timeline from "./sections/Timeline/Timeline";
+import StarField from "./components/StarField";
 // import Timeline from "./sections/Timeline/Timeline";
 // import Registration from "./sections/Registration/Registration";
-// import Prizes from "./sections/Prizes/Prizes";
-// import FAQ from "./sections/FAQ/FAQ";
-// import Footer from "./sections/Footer/Footer";
+import Prizes from "./sections/Prizes/Prizes";
+import Sponsors from "./sections/Sponsors/Sponsors";
+import FAQ from "./sections/FAQ/FAQ";
+import Footer from "./sections/Footer/Footer";
 export default function MainLayout() {
   return (
     <>
       {/* Global Effects */}
-      <Background />
+      {/* <Background /> */}
+      <StarField /> 
       <Cursor />
 
       {/* Sections */}
       
       <Header />
-      {/* <About /> */}
 
-      <Registration />
+      <Hero />
+      <About />
+      <Tracks />
 
-      <Eligibility />
- 
-      {/* <Tracks />
       <Timeline />
-      <Registration />
+      <Eligibility />
+      <Registration/>      
       <Prizes />
+      <Sponsors/>
       <FAQ />
-      <Footer />   */}
+      <Footer /> 
+
+  
+      {/*
+      <Prizes />   */}
     
     </>
   );

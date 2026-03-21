@@ -1,0 +1,201 @@
+/* Base Section */
+.prizes-section {
+  background-color: #120e1a; /* Darker, slightly purple background */
+  color: white;
+  padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3D Title */
+.prizes-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 3rem;
+  color: #ff3399; /* Neon Pink */
+  /* This creates the 3D block + the glow! */
+  text-shadow: 
+    2px 2px 0px #8b0054,
+    4px 4px 0px #8b0054,
+    6px 6px 0px #8b0054,
+    0 0 20px rgba(255, 51, 153, 0.4);
+  margin-bottom: 1rem;
+}
+
+/* Pink Squares */
+/* --- ANIMATED PINK LOADING SQUARES --- */
+.pink-squares-loader {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 3rem;
+}
+
+.pink-squares-loader span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: #ff3399; /* Neon Pink */
+  opacity: 0.3; /* Default dim state */
+  animation: loadBlink 1.6s infinite;
+}
+
+/* Stagger the animation so they light up one by one */
+.pink-squares-loader span:nth-child(1) { animation-delay: 0s; }
+.pink-squares-loader span:nth-child(2) { animation-delay: 0.2s; }
+.pink-squares-loader span:nth-child(3) { animation-delay: 0.4s; }
+.pink-squares-loader span:nth-child(4) { animation-delay: 0.6s; }
+.pink-squares-loader span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes loadBlink {
+  0%, 100% { 
+    opacity: 0.2; 
+    box-shadow: none; 
+  }
+  50% { 
+    opacity: 1; 
+    box-shadow: 0 0 10px #ff3399, 0 0 20px #ff3399; 
+  }
+}
+
+/* 3D Prize Pool Amount */
+.pool-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  color: #a0a0b0;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.pool-amount {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 4.5rem;
+  color: #ffcc00; /* Bright Yellow */
+  margin: 1rem 0;
+  /* 3D Block + Glow for the numbers */
+  text-shadow: 
+    3px 3px 0px #996600,
+    6px 6px 0px #996600,
+    9px 9px 0px #996600,
+    0 0 30px rgba(255, 204, 0, 0.4);
+}
+
+/* CSS Coins */
+.spinning-coins {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.spinning-coins .coin {
+  width: 18px;
+  height: 24px;
+  background-color: #ffcc00; /* Solid arcade yellow */
+  border-radius: 50%; /* Simple oval shape */
+  /* This creates a tiny hard shadow to make it look like a 3D block when spinning */
+  box-shadow: inset -2px 0 0 #cc9900; 
+  animation: spinCoin 1.2s infinite linear;
+}
+
+/* Stagger the coin spins so they look natural */
+.spinning-coins .coin:nth-child(1) { animation-delay: 0s; }
+.spinning-coins .coin:nth-child(2) { animation-delay: 0.2s; }
+.spinning-coins .coin:nth-child(3) { animation-delay: 0.4s; }
+.spinning-coins .coin:nth-child(4) { animation-delay: 0.6s; }
+.spinning-coins .coin:nth-child(5) { animation-delay: 0.8s; }
+
+/* The magic 3D flip effect using scaleX */
+@keyframes spinCoin {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(0); } /* Squish it completely flat */
+  100% { transform: scaleX(1); }
+}
+
+/* Cards Container */
+.prize-cards-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Arcade Cards */
+.prize-card {
+  background: rgba(20, 20, 35, 0.4);
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.prize-card:hover {
+  transform: translateY(-5px);
+}
+
+.prize-card h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.8rem 0;
+  color: white;
+}
+
+.prize-card p {
+  color: #a0a0b0;
+  font-size: 0.9rem;
+}
+
+/* Outline Glows for Cards */
+.first-place {
+  border: 2px solid #ffcc00;
+  box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.1);
+}
+.icon-wrapper.yellow { color: #ffcc00; }
+
+.second-place {
+  border: 2px solid #00ffff;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+.icon-wrapper.blue { color: #00ffff; }
+
+.third-place {
+  border: 2px solid #ff3399;
+  box-shadow: inset 0 0 20px rgba(255, 51, 153, 0.1);
+}
+.icon-wrapper.pink { color: #ff3399; }
+
+/* --- GIFT HAMPER BANNER --- */
+.gift-hamper-banner {
+  width: 100%;
+  max-width: 1000px; /* Matches the width of the cards container */
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(20, 20, 35, 0.4); /* Same dark glass effect as the cards */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle, dark border */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gift-icon {
+  color: #ff3399; /* Neon Pink to match the 3rd place card and top text */
+}
+
+.gift-text {
+  font-family: 'Press Start 2P', monospace; /* The retro arcade font */
+  font-size: 0.8rem;
+  color: #c0c0d0; /* Soft gray color so it's not too harsh */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px; /* Slight optical adjustment for the arcade font */
+}

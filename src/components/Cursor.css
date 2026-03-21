@@ -1,0 +1,19 @@
+.cursor {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ff2d78;
+  position: fixed;
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.cursor2 {
+  width: 6px;
+  height: 6px;
+  background: #00f5ff;
+  position: fixed;
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+  z-index: 999;
+}
