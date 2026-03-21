@@ -9,8 +9,8 @@ import Hero from "./sections/Hero/Hero";
 // import Timeline from "./sections/Timeline/Timeline";
 // import Registration from "./sections/Registration/Registration";
 // import Prizes from "./sections/Prizes/Prizes";
-// import FAQ from "./sections/FAQ/FAQ";
-// import Footer from "./sections/Footer/Footer";
+import FAQ from "./sections/FAQ/FAQ";
+import Footer from "./sections/Footer/Footer";
 export default function MainLayout() {
   return (
     <>
@@ -24,13 +24,13 @@ export default function MainLayout() {
       <Hero />
       <About />
       <Eligibility />
+      <FAQ />
+      <Footer /> 
 
       {/* <Tracks />
       <Timeline />
       <Registration />
-      <Prizes />
-      <FAQ />
-      <Footer />   */}
+      <Prizes />   */}
     
     </>
   );
