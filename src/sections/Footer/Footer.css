@@ -20,10 +20,10 @@
 /* background orb */
 .ft-orb {
   position: absolute;
-  top: -80px; left: 50%;
+  top: -60px; left: 50%;
   transform: translateX(-50%);
-  width: 640px; height: 280px;
-  background: radial-gradient(ellipse at center, rgba(123, 47, 255, 0.13) 0%, transparent 70%);
+  width: 500px; height: 200px;
+  background: radial-gradient(ellipse at center, rgba(123, 47, 255, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -32,99 +32,32 @@
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 64px 32px 40px;
+  padding: 36px 32px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 16px;
 }
 
 /* ── Logo ── */
-.ft-logo-wrap { margin-bottom: 28px; }
-
 .ft-logo {
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--pink);
   text-shadow:
     0 0 12px var(--pink),
-    4px 4px 0 #8b0042,
-    8px 8px 0 #4a0022;
+    3px 3px 0 #8b0042,
+    6px 6px 0 #4a0022;
   letter-spacing: 5px;
-  display: inline-block;
-  margin-bottom: 10px;
 }
 
 .ft-org {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--cyan);
   letter-spacing: 3px;
   text-shadow: 0 0 8px var(--cyan);
-}
-
-/* ── Divider ── */
-.ft-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  width: 100%;
-  margin: 28px 0;
-}
-.ft-divider--bottom { margin: 28px 0 20px; }
-
-.ft-divider-line {
-  flex: 1;
-  max-width: 160px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 45, 120, 0.45));
-}
-.ft-divider-line--right {
-  background: linear-gradient(90deg, rgba(255, 45, 120, 0.45), transparent);
-}
-
-.ft-divider-icon {
-  font-size: 1rem;
-  color: var(--pink);
-  text-shadow: 0 0 8px var(--pink);
-}
-
-.ft-divider-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.42rem;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-
-/* ── Nav links ── */
-.ft-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px 4px;
-  margin-bottom: 32px;
-}
-
-.ft-link {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  padding: 6px 14px;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  transition: all 0.18s;
-}
-.ft-link:hover {
-  color: #fff;
-  border-color: rgba(255, 45, 120, 0.5);
-  background: rgba(255, 45, 120, 0.1);
-  text-shadow: 0 0 6px var(--pink);
 }
 
 /* ── CTA buttons ── */
@@ -132,8 +65,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 0;
+  gap: 12px;
+  margin: 4px 0;
 }
 
 .ft-btn {
@@ -141,17 +74,16 @@
   align-items: center;
   gap: 8px;
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  padding: 10px 20px;
+  padding: 9px 18px;
   text-decoration: none;
   border-radius: 2px;
   position: relative;
   overflow: hidden;
   transition: transform 0.18s, box-shadow 0.18s;
 }
-/* shimmer sweep */
 .ft-btn::before {
   content: '';
   position: absolute; inset: 0;
@@ -183,24 +115,47 @@
 }
 .ft-btn--register:hover { box-shadow: 0 0 20px rgba(255, 45, 120, 0.25); }
 
+/* ── Divider ── */
+.ft-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.ft-divider-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 45, 120, 0.45));
+}
+.ft-divider-line--right {
+  background: linear-gradient(90deg, rgba(255, 45, 120, 0.45), transparent);
+}
+
+.ft-divider-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.38rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
 /* ── Copyright ── */
 .ft-copy {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.25);
   letter-spacing: 1.2px;
-  line-height: 2;
   margin: 0;
 }
-.ft-copy--dim { color: rgba(255, 255, 255, 0.18); }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .ft-inner { padding: 48px 20px 32px; }
-  .ft-logo { font-size: 1.6rem; letter-spacing: 3px; }
-  .ft-org { font-size: 0.6rem; letter-spacing: 2px; }
-  .ft-links { gap: 4px; }
-  .ft-link { padding: 5px 10px; font-size: 0.55rem; }
-  .ft-ctas { gap: 10px; }
-  .ft-btn { font-size: 0.55rem; padding: 9px 14px; }
+  .ft-inner { padding: 28px 20px 20px; gap: 14px; }
+  .ft-logo { font-size: 1.2rem; letter-spacing: 3px; }
+  .ft-ctas { gap: 8px; }
+  .ft-btn { font-size: 0.52rem; padding: 8px 12px; }
 }
+
