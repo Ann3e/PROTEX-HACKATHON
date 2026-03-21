@@ -60,11 +60,10 @@
 
 .section-title {
   font-family: "Press Start 2P", monospace;
-  font-size: clamp(1rem, 2.8vw, 1.6rem);
-  font-weight: 400;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  color: var(--pink);
   text-align: center;
   letter-spacing: 0.04em;
-  color: #fff;
   text-shadow:
     0 0 10px rgba(255, 45, 120, 0.7),
     0 0 30px rgba(255, 45, 120, 0.4),

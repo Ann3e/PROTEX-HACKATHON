@@ -145,7 +145,7 @@ export default function Registration() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h2 className="section-title">Registration</h2>
+          <h2 className="section-title">REGISTRATION</h2>
           <div className="title-underline" />
         </motion.div>
 
