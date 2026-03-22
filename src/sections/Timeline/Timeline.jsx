@@ -11,7 +11,7 @@ const timelineData = [
     ghostColor: "#00f5ff",
     subtitle: "Registrations Begin",
     description: "Register on Unstop & WhereUElevate. Fill mandatory Google Form.",
-    button: { label: "VIEW REGISTRATION STEPS", href: "#" },
+    button: { label: "VIEW REGISTRATION STEPS", href: "#register" },
     details: [
       "Fill mandatory Google Form",
       "Registration on both platforms is mandatory",
