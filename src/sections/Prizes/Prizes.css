@@ -10,57 +10,44 @@
   align-items: center;
   justify-content: center;
 }
-
-/* 3D Title */
-.prizes-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 3rem;
-  color: #ff3399; /* Neon Pink */
-  /* This creates the 3D block + the glow! */
-  text-shadow: 
-    2px 2px 0px #8b0054,
-    4px 4px 0px #8b0054,
-    6px 6px 0px #8b0054,
-    0 0 20px rgba(255, 51, 153, 0.4);
-  margin-bottom: 1rem;
-}
-
-/* Pink Squares */
-/* --- ANIMATED PINK LOADING SQUARES --- */
-.pink-squares-loader {
+/* Section Title — matches About / Tracks / Sponsors style */
+.prizes-title-wrap {
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 3rem;
 }
 
-.pink-squares-loader span {
+.prizes-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.85rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.25em;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: none;
+  color: unset;
+}
+
+.prizes-title .title-accent {
+  color: #ff2d78;
+  text-shadow: 0 0 12px #ff2d78, 0 0 30px rgba(255, 45, 120, 0.4);
+}
+
+.prizes-title .title-plain {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.prizes-title-underline {
   display: block;
-  width: 12px;
-  height: 12px;
-  background-color: #ff3399; /* Neon Pink */
-  opacity: 0.3; /* Default dim state */
-  animation: loadBlink 1.6s infinite;
+  width: 70px;
+  height: 3px;
+  min-height: 3px;
+  background: linear-gradient(90deg, #ff2d78, #00f5ff);
+  margin: 14px auto 0;
+  box-shadow: 0 0 10px #00f5ff;
+  border: none;
 }
-
-/* Stagger the animation so they light up one by one */
-.pink-squares-loader span:nth-child(1) { animation-delay: 0s; }
-.pink-squares-loader span:nth-child(2) { animation-delay: 0.2s; }
-.pink-squares-loader span:nth-child(3) { animation-delay: 0.4s; }
-.pink-squares-loader span:nth-child(4) { animation-delay: 0.6s; }
-.pink-squares-loader span:nth-child(5) { animation-delay: 0.8s; }
-
-@keyframes loadBlink {
-  0%, 100% { 
-    opacity: 0.2; 
-    box-shadow: none; 
-  }
-  50% { 
-    opacity: 1; 
-    box-shadow: 0 0 10px #ff3399, 0 0 20px #ff3399; 
-  }
-}
-
 /* 3D Prize Pool Amount */
 .pool-label {
   font-family: 'Press Start 2P', monospace;
@@ -197,4 +184,88 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-top: 4px; /* Slight optical adjustment for the arcade font */
+}
+
+
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .prizes-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .pool-amount {
+    font-size: 3rem;
+    text-shadow:
+      2px 2px 0px #996600,
+      4px 4px 0px #996600,
+      0 0 20px rgba(255, 204, 0, 0.4);
+  }
+
+  .prize-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .prize-card {
+    width: 100%;
+    max-width: 420px;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .prizes-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .prizes-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  .prizes-title-underline {
+    width: 60px;
+  }
+
+  .pool-label {
+    font-size: 0.6rem;
+  }
+
+  .pool-amount {
+    font-size: 2.2rem;
+    text-shadow:
+      2px 2px 0px #996600,
+      0 0 16px rgba(255, 204, 0, 0.4);
+  }
+
+  .prize-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .prize-card h3 {
+    font-size: 0.85rem;
+  }
+
+  .prize-card p {
+    font-size: 0.75rem;
+  }
+
+  .gift-hamper-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  .gift-text {
+    font-size: 0.6rem;
+  }
+
+  .spinning-coins {
+    gap: 10px;
+    margin-bottom: 2.5rem;
+  }
 }

@@ -1,14 +1,18 @@
 import React from 'react';
 import './Sponsors.css';
 
-// Notice: No need to import images when they are in the 'public' folder!
 
 const Sponsors = () => {
   return (
     <section className="sponsors-section" id="sponsors">
       {/* Arcade Header */}
-      <h2 className="sponsors-title">SPONSORS</h2>
-      <p className="blinking-subtitle">POWERING UP THIS LEVEL</p>
+      <div className="sponsors-title-wrap">
+  <h2 className="sponsors-title">
+    <span className="title-accent">SPONSORS</span>
+    <span className="title-plain"> - POWER-UPS</span>
+  </h2>
+  <div className="sponsors-title-underline" />
+</div>
 
       {/* 4-Player Grid */}
       <div className="sponsors-grid">

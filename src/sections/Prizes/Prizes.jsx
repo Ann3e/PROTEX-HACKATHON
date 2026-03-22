@@ -5,12 +5,13 @@ const Prizes = () => {
   return (
     <section className="prizes-section" id="prizes">
       {/* Header */}
-      <h2 className="prizes-title">PRIZES</h2>
-      
-      {/* Animated Pink Loading Squares */}
-      <div className="pink-squares-loader">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+     <div className="prizes-title-wrap">
+  <h2 className="prizes-title">
+    <span className="title-accent">PRIZES</span>
+    <span className="title-plain"> - CLAIM YOUR LOOT</span>
+  </h2>
+  <div className="prizes-title-underline" />
+</div>
 
       {/* Total Prize Pool */}
       <div className="prize-pool-container">

@@ -9,29 +9,42 @@
   align-items: center;
 }
 
-/* 3D Title (Matches Prizes) */
-.sponsors-title {
-  font-size: 3rem;
-  color: #00ffff; /* Neon Cyan */
-  text-shadow: 
-    2px 2px 0px #006666,
-    4px 4px 0px #006666,
-    6px 6px 0px #006666,
-    0 0 20px rgba(0, 255, 255, 0.4);
-  margin-bottom: 0.5rem;
-}
-
-/* Blinking Subtitle */
-.blinking-subtitle {
-  color: #ffcc00; /* Arcade Yellow */
-  font-size: 1rem;
+.sponsors-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 4rem;
-  animation: blinkText 1s infinite;
 }
 
-@keyframes blinkText {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.sponsors-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.85rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.25em;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: none;
+  color: unset;
+}
+
+.sponsors-title .title-accent {
+  color: #ff2d78;
+  text-shadow: 0 0 12px #ff2d78, 0 0 30px rgba(255, 45, 120, 0.4);
+}
+
+.sponsors-title .title-plain {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+
+.sponsors-title-underline {
+  display: block;
+  width: 70px;
+  height: 3px;
+  min-height: 3px;
+  background: linear-gradient(90deg, #ff2d78, #00f5ff);
+  margin: 14px auto 0;
+  box-shadow: 0 0 10px #00f5ff;
+  border: none;
 }
 
 /* Grid Layout for exactly 4 items */
@@ -102,7 +115,13 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  .sponsors-title {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+
 }
+
 
 /* Placeholder text */
 .placeholder-text {
@@ -138,6 +157,10 @@
 @media (max-width: 480px) {
   .sponsors-grid {
     grid-template-columns: 1fr;
+}
+ .sponsors-title {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
   }
 }
 
@@ -176,3 +199,73 @@
 }
 .sponsor-card.player-four:hover .player-tag { background: #00ff00; color: black; }
 .sponsor-card.player-four:hover .sponsor-name { color: #00ff00; }
+
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .sponsors-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .sponsor-screen {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sponsors-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .sponsors-title {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+
+  .sponsors-title-underline {
+    width: 60px;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .sponsor-screen {
+    height: 130px;
+    padding: 15px;
+  }
+
+  .card-footer {
+    font-size: 0.6rem;
+  }
+
+  .sponsor-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsors-title {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+}
