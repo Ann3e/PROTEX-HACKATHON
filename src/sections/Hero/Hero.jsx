@@ -178,7 +178,7 @@ const Hero = () => {
           PROTEX
         </h1>
 
-        <h2 className="hero-subtitle">HACK&#8209;2&#8209;WIN</h2>
+        <h2 className="hero-subtitle">HACK-2-WIN</h2>
 
         <p className="hero-tagline">Build. Innovate. Dominate.</p>
 

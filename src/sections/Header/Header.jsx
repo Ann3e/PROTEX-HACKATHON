@@ -1,29 +1,15 @@
-// import "./Header.css";
-
-// export default function Header() {
-//   return (
-//     <section className="header section">
-//       <div className="hero-content">
-//         <h1 className="title">PROTEX</h1>
-//         <p className="subtitle">Hack the Future</p>
-
-//         <button className="cta-btn">Register Now</button>
-//       </div>
-//     </section>
-//   );
-// }
 import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Tracks", href: "#tracks" },
+  { label: "Home",     href: "#home" },
+  { label: "About",    href: "#about" },
+  { label: "Tracks",   href: "#tracks" },
   { label: "Timeline", href: "#timeline" },
   { label: "Register", href: "#register" },
-  { label: "Prizes", href: "#prizes" },
+  { label: "Prizes",   href: "#prizes" },
   { label: "Sponsors", href: "#sponsors" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ",      href: "#faq" },
 ];
 
 const ControllerIcon = () => (
@@ -48,26 +34,52 @@ const ControllerIcon = () => (
 );
 
 const Header = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive]     = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  /* ── Scroll shadow ── */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  /* ── Body scroll lock ── */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  /* ── Active section via IntersectionObserver ── */
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const match = NAV_LINKS.find(
+              ({ href }) => href === `#${entry.target.id}`
+            );
+            if (match) setActive(match.label);
+          }
+        });
+      },
+      {
+        // fires when section crosses the middle band of viewport
+        rootMargin: "-40% 0px -55% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <header className={`protex-header${scrolled ? " protex-header--scrolled" : ""}`}>
-        {/* Pixel scanline effect */}
         <div className="header-scanlines" aria-hidden="true" />
 
         {/* ── LOGO ── */}
@@ -157,7 +169,6 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Bottom decoration */}
         <div className="drawer-footer" aria-hidden="true">
           <span className="drawer-footer-text">BUILD · INNOVATE · DOMINATE</span>
         </div>
