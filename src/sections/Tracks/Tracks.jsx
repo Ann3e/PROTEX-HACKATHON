@@ -231,7 +231,7 @@ function Label({ text, color }) {
 
 export default function Tracks() {
   // Track 1 open by default
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(0);
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
