@@ -17,3 +17,10 @@
   pointer-events: none;
   z-index: 999;
 }
+
+@media (pointer: coarse) {
+  .cursor,
+  .cursor2 {
+    display: none;
+  }
+}
