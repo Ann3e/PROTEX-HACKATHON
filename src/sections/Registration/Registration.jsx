@@ -132,7 +132,7 @@ function ActionButton({ btn, index }) {
 ═══════════════════════════════════════════════════ */
 export default function Registration() {
   return (
-    <section className="registration-section">
+    <section className="registration-section" id="register">
       <div className="grid-overlay" aria-hidden="true" />
 
       <div className="registration-container">

@@ -217,7 +217,7 @@ const Timeline = () => {
   const titleInView = useInView(titleRef, { once: true });
 
   return (
-    <section className="tl-section">
+    <section className="tl-section" id="timeline">
       <motion.div
         ref={titleRef}
         className="tl-header"
