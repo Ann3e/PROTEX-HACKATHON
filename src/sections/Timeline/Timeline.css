@@ -25,7 +25,10 @@
   font-family: var(--font-mono);
   color: var(--text-body);
 }
-
+.tl-title-white {
+  color: #ffffff;
+  text-shadow: none;
+}
 /* ── Header ─────────────────────────────────────────── */
 .tl-header {
   text-align: center;
@@ -33,8 +36,8 @@
 }
 
 .tl-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-family: var(--font-pixel);
-  font-size: clamp(1.5rem, 5vw, 2.6rem);
   color: var(--pink);
   letter-spacing: 0.2em;
   margin: 0 0 14px;

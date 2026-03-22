@@ -5,7 +5,7 @@ import "./Timeline.css";
 /* ── Data ──────────────────────────────────────────── */
 const timelineData = [
   {
-    date: "18th March",
+    date: "Level 1 - 18th March",
     side: "right",
     accentVar: "--cyan",
     ghostColor: "#00f5ff",
@@ -18,7 +18,7 @@ const timelineData = [
     ],
   },
   {
-    date: "1st April",
+    date: "Level 2 - 1st April",
     side: "left",
     accentVar: "--pink",
     ghostColor: "#ff2d78",
@@ -31,7 +31,7 @@ const timelineData = [
     ],
   },
   {
-    date: "5th April",
+    date: "Level 3 - 5th April",
     side: "right",
     accentVar: "--purple",
     ghostColor: "#7b2fff",
@@ -44,7 +44,7 @@ const timelineData = [
     ],
   },
   {
-    date: "6th April",
+    date: "Level 4 - 6th April",
     side: "left",
     accentVar: "--yellow",
     ghostColor: "#ffd600",
@@ -225,9 +225,10 @@ const Timeline = () => {
         animate={titleInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="tl-title">TIMELINE</h1>
+        <h1 className="tl-title">
+  TIMELINE <span className="tl-title-white">— ROAD TO GLORY</span>
+</h1>
         <div className="tl-shine-line" />
-        <p className="tl-sub">Your journey from registration to the grand finale.</p>
       </motion.div>
 
       <div className="tl-body">
