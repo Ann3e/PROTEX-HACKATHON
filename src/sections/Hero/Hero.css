@@ -652,7 +652,6 @@
   }
 
   /* HUD — hide on very small */
-  .hud-bar { display: none; }
 
   /* Content gaps */
   .hero-content { gap: 0.65rem; }
