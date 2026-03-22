@@ -31,7 +31,7 @@ const timelineData = [
     ],
   },
   {
-    date: "Level 3 - 5th April",
+    date: "Level 3 - 4th April",
     side: "right",
     accentVar: "--purple",
     ghostColor: "#7b2fff",
